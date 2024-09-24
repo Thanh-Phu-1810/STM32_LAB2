@@ -22,6 +22,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "exercise1.h"
 
 /* USER CODE END Includes */
 
@@ -89,14 +90,40 @@ int main(void)
   MX_GPIO_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
+  HAL_TIM_Base_Start_IT(&htim2);
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  setTimer1(50);
+  int led_status = 0;
   while (1)
   {
     /* USER CODE END WHILE */
+	  if(timer1_flag == 1)
+	  {   setTimer1(50);
+	      HAL_GPIO_WritePin(GPIOA, LED_RED_Pin, RESET);
+		  switch(led_status)
+		  {
+		      case 0:
+		    	  HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
+		    	  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
+		    	  HAL_GPIO_WritePin(GPIOB, SEG_1_Pin | SEG_2_Pin, RESET);
+		    	  HAL_GPIO_WritePin(GPIOB, SEG_0_Pin | SEG_3_Pin | SEG_4_Pin | SEG_5_Pin | SEG_6_Pin , SET);
+		    	  led_status = 1;
+		    	  break;
+		      case 1:
+		    	  HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
+		    	  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, RESET);
+		    	  HAL_GPIO_WritePin(GPIOB, SEG_0_Pin | SEG_1_Pin | SEG_3_Pin | SEG_4_Pin | SEG_6_Pin , RESET);
+		    	  HAL_GPIO_WritePin(GPIOB, SEG_2_Pin | SEG_5_Pin, SET);
+		    	  led_status = 0;
+		    	  break;
+		      default:
+		    	  break;
+		  }
+	  }
 
     /* USER CODE BEGIN 3 */
   }
@@ -222,6 +249,10 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+     timerRun();
+}
 
 /* USER CODE END 4 */
 
