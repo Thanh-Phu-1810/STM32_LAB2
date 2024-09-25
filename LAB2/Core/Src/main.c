@@ -237,6 +237,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 		if(timer_counter <= 0)
 		{
 			timer_counter = 1;
+			HAL_GPIO_TogglePin(GPIOA, DOT_Pin);
             if(temp >= 4) temp = 0;
             update7SEG(temp++);
 		}
