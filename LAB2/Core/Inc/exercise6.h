@@ -5,8 +5,8 @@
  *      Author: Thanh Phu
  */
 
-#ifndef INC_EXERCISE5_H_
-#define INC_EXERCISE5_H_
+#ifndef INC_EXERCISE6_H_
+#define INC_EXERCISE6_H_
 
 #include "main.h"
 int hour;
@@ -15,9 +15,14 @@ int second;
 extern const int MAX_LED;
 extern int index_led;
 extern int led_buffer[4];
+extern int timer_flag;
+extern int timer_counter;
+extern int TIMER_CYCLE;
+void setTimer(int time);
+void timerRun();
 void updateClockBuffer();
 void update7SEG(int index);
 
 
 
-#endif /* INC_EXERCISE5_H_ */
+#endif /* INC_EXERCISE6_H_ */

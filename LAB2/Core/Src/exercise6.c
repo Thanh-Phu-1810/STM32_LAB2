@@ -4,10 +4,29 @@
  *  Created on: Sep 25, 2024
  *      Author: Thanh Phu
  */
-#include "exercise5.h"
+#include <exercise6.h>
 const int MAX_LED = 4;
 int led_buffer[4];
 int index_led = 0;
+int timer_flag = 0;
+int timer_counter = 0;
+int TIMER_CYCLE = 10;
+void setTimer(int time)
+{
+	timer_counter = time / TIMER_CYCLE;
+	timer_flag = 0;
+}
+void timerRun()
+{
+	if(timer_counter > 0)
+	{
+		timer_counter--;
+		if(timer_counter <= 0)
+		{
+			timer_flag = 1;
+		}
+	}
+}
 void updateClockBuffer()
 {
 	if(hour < 10)
