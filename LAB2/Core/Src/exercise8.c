@@ -4,7 +4,7 @@
  *  Created on: Sep 25, 2024
  *      Author: Thanh Phu
  */
-#include <exercise7.h>
+#include <exercise8.h>
 const int MAX_LED = 6;
 int led_buffer[6];
 int index_led = 0;
