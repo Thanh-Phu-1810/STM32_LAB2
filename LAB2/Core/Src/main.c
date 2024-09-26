@@ -18,11 +18,12 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
+
 #include "main.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "exercise5.h"
+#include <exercise7.h>
 
 /* USER CODE END Includes */
 
@@ -99,28 +100,35 @@ int main(void)
   hour = 15;
   minute = 8;
   second = 50;
+  setTimer(1000);
+  int temp = 0;
   while (1)
   {
     /* USER CODE END WHILE */
-    second++;
-    if(second >= 60)
-    {
-    	minute++;
-    	second = 0;
-    }
-    if(minute >= 60)
-    {
-    	hour++;
-    	minute = 0;
-    }
-    if(hour >= 24)
-    {
-    	hour = 0;
-    }
-    updateClockBuffer();
-    HAL_Delay(900);
-
-    /* USER CODE BEGIN 3 */
+	  if(timer_flag == 1)
+	  {
+		  setTimer(1000);
+		  HAL_GPIO_TogglePin(GPIOA, DOT_Pin);
+		  second++;
+		     if(second >= 60)
+		     {
+		     	minute++;
+		     	second = 0;
+		     }
+		     if(minute >= 60)
+		     {
+		     	hour++;
+		     	minute = 0;
+		     }
+		     if(hour >= 24)
+		     {
+		     	hour = 0;
+		     }
+		     updateClockBuffer();
+		     if(temp >= 4) temp = 0;
+		     update7SEG(temp++);
+	  }
+  /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
 }
@@ -247,20 +255,9 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-int counter = 100;
-int temp = 0;
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-   if(counter > 0)
-   {
-	   counter--;
-	   if(counter <= 0)
-	   {
-		   counter = 100;
-		   if(temp >= 4) temp = 0;
-		   update7SEG(temp++);
-	   }
-   }
+   timerRun();
 }
 
 /* USER CODE END 4 */

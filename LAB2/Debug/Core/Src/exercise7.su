@@ -1,0 +1,4 @@
+exercise7.c:14:6:setTimer	16	static
+exercise7.c:19:6:timerRun	4	static
+exercise7.c:30:6:updateClockBuffer	4	static
+exercise7.c:67:6:update7SEG	16	static
