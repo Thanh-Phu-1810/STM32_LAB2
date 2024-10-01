@@ -18,12 +18,12 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
+
 #include "main.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "exercise9.h"
-
+#include "exercise10.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -107,7 +107,6 @@ int main(void)
 		  setTimer(20);
 		  if(index_led_matrix >= MAX_LED_MATRIX) index_led_matrix = 0;
 		  updateLEDMatrix(index_led_matrix++);
-
 	  }
 
     /* USER CODE BEGIN 3 */
