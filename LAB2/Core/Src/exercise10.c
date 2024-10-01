@@ -26,7 +26,7 @@ void timerRun()
 	}
 }
 uint8_t matrix_buffer[8] = {0x18, 0x3C, 0x66, 0x66, 0x7E, 0x7E, 0x66, 0x66};
-uint16_t ENM_Pin[8] = {ENM0_Pin, ENM1_Pin, ENM2_Pin, ENM3_Pin, ENM4_Pin, ENM5_Pin, ENM6_Pin, ENM7_Pin}; //unit16_t lưu các biến không dấu 16 bit (các số có thể lưu từ 0 -> 2^16)
+uint16_t ENM_Pin[8] = {ENM0_Pin, ENM1_Pin, ENM2_Pin, ENM3_Pin, ENM4_Pin, ENM5_Pin, ENM6_Pin, ENM7_Pin}; //unit16_t lưu các số nguyên không dấu 16 bit (các số có thể lưu từ 0 -> 2^16)
 void updateLEDMatrix(int index)
 {
    resetAllLEDMatrix();
