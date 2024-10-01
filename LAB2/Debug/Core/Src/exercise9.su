@@ -1,0 +1,5 @@
+exercise9.c:12:6:setTimer	16	static
+exercise9.c:17:6:timerRun	4	static
+exercise9.c:29:6:updateLEDMatrix	16	static
+exercise9.c:70:6:resetAllLEDMatrix	8	static
+exercise9.c:74:6:displayLEDMatrix	16	static
