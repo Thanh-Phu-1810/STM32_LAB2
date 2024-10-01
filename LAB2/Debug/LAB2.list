@@ -144,7 +144,7 @@ void timerRun()
 
 080001a8 <updateLEDMatrix>:
 uint8_t matrix_buffer[8] = {0x18, 0x3C, 0x66, 0x66, 0x7E, 0x7E, 0x66, 0x66};
-uint16_t ENM_Pin[8] = {ENM0_Pin, ENM1_Pin, ENM2_Pin, ENM3_Pin, ENM4_Pin, ENM5_Pin, ENM6_Pin, ENM7_Pin}; //unit16_t lưu các biến không dấu 16 bit (các số có thể lưu từ 0 -> 2^16)
+uint16_t ENM_Pin[8] = {ENM0_Pin, ENM1_Pin, ENM2_Pin, ENM3_Pin, ENM4_Pin, ENM5_Pin, ENM6_Pin, ENM7_Pin}; //unit16_t lưu các số nguyên không dấu 16 bit (các số có thể lưu từ 0 -> 2^16)
 void updateLEDMatrix(int index)
 {
  80001a8:	b580      	push	{r7, lr}
@@ -286,7 +286,7 @@ void updateLEDMatrix(int index)
  80002b8:	f44f 6100 	mov.w	r1, #2048	; 0x800
  80002bc:	4858      	ldr	r0, [pc, #352]	; (8000420 <updateLEDMatrix+0x278>)
  80002be:	f000 fdb7 	bl	8000e30 <HAL_GPIO_WritePin>
-    	   matrix_buffer[index] = (matrix_buffer[index] << 1) | (matrix_buffer[index] >> 7);
+    	   matrix_buffer[index] = (matrix_buffer[index] << 1)| (matrix_buffer[index] >> 7);
  80002c2:	4a58      	ldr	r2, [pc, #352]	; (8000424 <updateLEDMatrix+0x27c>)
  80002c4:	687b      	ldr	r3, [r7, #4]
  80002c6:	4413      	add	r3, r2

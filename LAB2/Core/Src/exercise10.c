@@ -49,7 +49,7 @@ void updateLEDMatrix(int index)
     	   break;
        case 3:
     	   HAL_GPIO_WritePin(GPIOB, ROW3_Pin, RESET);
-    	   matrix_buffer[index] = (matrix_buffer[index] << 1) | (matrix_buffer[index] >> 7);
+    	   matrix_buffer[index] = (matrix_buffer[index] << 1)| (matrix_buffer[index] >> 7);
 		   displayLEDMatrix(matrix_buffer[index]);
 		   break;
        case 4:
