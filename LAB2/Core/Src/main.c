@@ -100,34 +100,43 @@ int main(void)
   hour = 15;
   minute = 8;
   second = 50;
-  setTimer(1000);
+  //setTimer1(0);
+  //setTimer2(0);
   int temp = 0;
   while (1)
   {
     /* USER CODE END WHILE */
-	  if(timer_flag == 1)
+
+	  if(timer2_flag == 1)
 	  {
-		  setTimer(1000);
-		  HAL_GPIO_TogglePin(GPIOA, DOT_Pin);
+		  setTimer2(1000);
+
+		  if(second >= 60)
+		  {
+		  	 minute++;
+		     second = 0;
+		  }
+		  if(minute >= 60)
+		  {
+		  	hour++;
+		  	minute = 0;
+		  }
+		  if(hour >= 24)
+		  {
+		     hour = 0;
+		  }
+		  updateClockBuffer();
 		  second++;
-		     if(second >= 60)
-		     {
-		     	minute++;
-		     	second = 0;
-		     }
-		     if(minute >= 60)
-		     {
-		     	hour++;
-		     	minute = 0;
-		     }
-		     if(hour >= 24)
-		     {
-		     	hour = 0;
-		     }
-		     updateClockBuffer();
-		     if(temp >= 4) temp = 0;
-		     update7SEG(temp++);
+		  HAL_GPIO_TogglePin(GPIOA, DOT_Pin);
 	  }
+	  if(timer1_flag == 1)
+	 	  {
+	 		  setTimer1(250);
+	 		  //updateClockBuffer();
+	 		  update7SEG(temp++);
+	           if(temp >= 4) temp = 0;
+
+	 	  }
   /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

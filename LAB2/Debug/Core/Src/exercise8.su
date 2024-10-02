@@ -1,4 +1,5 @@
-exercise8.c:14:6:setTimer	16	static
-exercise8.c:19:6:timerRun	4	static
-exercise8.c:30:6:updateClockBuffer	4	static
-exercise8.c:67:6:update7SEG	16	static
+exercise8.c:16:6:setTimer1	16	static
+exercise8.c:21:6:setTimer2	16	static
+exercise8.c:27:6:timerRun	4	static
+exercise8.c:47:6:updateClockBuffer	4	static
+exercise8.c:84:6:update7SEG	16	static

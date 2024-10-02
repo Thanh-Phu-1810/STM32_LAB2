@@ -8,22 +8,39 @@
 const int MAX_LED = 6;
 int led_buffer[6];
 int index_led = 0;
-int timer_flag = 0;
-int timer_counter = 0;
+int timer1_flag = 1;
+int timer1_counter = 0;
+int timer2_flag = 1;
+int timer2_counter = 0;
 int TIMER_CYCLE = 10;
-void setTimer(int time)
+void setTimer1(int time)
 {
-	timer_counter = time / TIMER_CYCLE;
-	timer_flag = 0;
+	timer1_counter = time / TIMER_CYCLE;
+	timer1_flag = 0;
 }
+void setTimer2(int time)
+{
+	timer2_counter = time / TIMER_CYCLE;
+	timer2_flag = 0;
+}
+
 void timerRun()
 {
-	if(timer_counter > 0)
+	if(timer1_counter > 0)
 	{
-		timer_counter--;
-		if(timer_counter <= 0)
+		timer1_counter--;
+		if(timer1_counter <= 0)
 		{
-			timer_flag = 1;
+			timer1_flag = 1;
+		}
+	}
+
+	if(timer2_counter > 0)
+    {
+		timer2_counter--;
+		if(timer2_counter <= 0)
+		{
+			timer2_flag = 1;
 		}
 	}
 }
