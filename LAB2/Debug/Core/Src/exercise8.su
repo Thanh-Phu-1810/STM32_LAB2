@@ -3,3 +3,4 @@ exercise8.c:21:6:setTimer2	16	static
 exercise8.c:27:6:timerRun	4	static
 exercise8.c:47:6:updateClockBuffer	4	static
 exercise8.c:84:6:update7SEG	16	static
+exercise8.c:127:6:displayLEDMatrix	16	static

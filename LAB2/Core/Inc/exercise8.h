@@ -25,6 +25,7 @@ void setTimer2(int time);
 void timerRun();
 void updateClockBuffer();
 void update7SEG(int index);
+void displayLEDMatrix(int index);
 
 
 

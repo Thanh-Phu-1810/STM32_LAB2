@@ -100,8 +100,6 @@ int main(void)
   hour = 15;
   minute = 8;
   second = 50;
-  //setTimer1(0);
-  //setTimer2(0);
   int temp = 0;
   while (1)
   {
@@ -110,7 +108,7 @@ int main(void)
 	  if(timer2_flag == 1)
 	  {
 		  setTimer2(1000);
-
+          second++;
 		  if(second >= 60)
 		  {
 		  	 minute++;
@@ -126,16 +124,13 @@ int main(void)
 		     hour = 0;
 		  }
 		  updateClockBuffer();
-		  second++;
 		  HAL_GPIO_TogglePin(GPIOA, DOT_Pin);
 	  }
 	  if(timer1_flag == 1)
 	 	  {
 	 		  setTimer1(250);
-	 		  //updateClockBuffer();
+	 		  if(temp >= 4) temp = 0;
 	 		  update7SEG(temp++);
-	           if(temp >= 4) temp = 0;
-
 	 	  }
   /* USER CODE BEGIN 3 */
   }
